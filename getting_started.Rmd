@@ -1,0 +1,162 @@
+---
+title: "ccw_1"
+author: "gokul"
+date: "2024-05-07"
+output: html_document
+---
+
+```{r}
+getwd()
+
+install.packages("dplyr")
+library(dplyr)
+
+
+
+
+
+
+
+
+
+
+
+```
+```{r}
+library(here)
+
+edidiv <- read.csv(here("CC-RBasics-master", "edidiv.csv"))
+
+View(edidiv)
+
+head(edidiv)
+tail(edidiv)
+
+str(edidiv)
+
+
+
+```
+```{r}
+
+head(edidiv$taxonGroup)
+class(edidiv$taxonGroup)
+edidiv$taxonGroup <- as.factor(edidiv$taxonGroup)
+class(edidiv$taxonGroup)
+
+dim(edidiv)
+summary(edidiv)
+
+summary(edidiv$taxonGroup)
+
+```
+```{r}
+View(edidiv)
+beetle <-filter(edidiv, taxonGroup == "Beetle")
+View(beetle)
+
+bird <- filter(edidiv, taxonGroup == "Bird")
+View(bird)
+summary(edidiv$taxonGroup)
+butterfly <- filter(edidiv, taxonGroup == "Butterfly")
+dragonfly <- filter(edidiv, taxonGroup == "Dragonfly")
+Flowering.Plants <- filter(edidiv, taxonGroup == "Flowering.Plants")
+Fungus <- filter(edidiv, taxonGroup == "Fungus")
+Hymenopteran <- filter(edidiv, taxonGroup == "Hymenopteran")
+Lichen <- filter(edidiv, taxonGroup == "Lichen")
+Liverwort <- filter(edidiv, taxonGroup == "Liverwort")
+Mammal <- filter(edidiv, taxonGroup == "Mammal")
+Mollusc <- filter(edidiv, taxonGroup == "Mollusc")
+
+
+a <- length(unique(beetle$taxonName))
+b <- length(unique(bird$taxonName))
+c <- length(unique(butterfly$taxonName))
+d <- length(unique(dragonfly$taxonName))
+e <- length(unique(Flowering.Plants$taxonName))
+f <- length(unique(Fungus$taxonName))
+g <- length(unique(Hymenopteran$taxonName))
+h <- length(unique(Lichen$taxonName))
+i <- length(unique(Liverwort$taxonName))
+j <- length(unique(Mammal$taxonName))
+k <- length(unique(Mollusc$taxonName))
+
+
+
+
+
+
+
+
+library(tidyverse)
+library(readxl)
+library(here)
+
+names(for_plot) <- c("Beetle",
+                   "Bird",
+                   "Butterfly",
+                   "Dragonfly",
+                   "Flowering.Plants",
+                   "Fungus",
+                   "Hymenopteran",
+                   "Lichen",
+                   "Liverwort",
+                   "Mammal",
+                   "Mollusc")
+
+barplot(for_plot)
+
+
+
+
+
+```
+barplot(for_plot)
+```{r}
+
+bird_sp <- c("sparrow",
+             "rgarfgarg",
+             "argagagrag",
+             "argaergerg",
+             "aerghaergherh",
+             "aergaqerger")
+bird_sp_fac <- factor(bird_sp)
+number_bird <- c(5,7,9,5,4,10)
+
+for_ggplot <- data.frame(bird_sp_fac,number_bird)
+ggplot(data = for_ggplot, aes( x=number_bird, y= bird_sp_fac)) + geom_bar()
+
+
+
+
+
+```
+
+ggplot(data=for_ggplot,aes(x=number_bird,y=bird_sp_fac)) + geom_bar()
+
+
+```{r}
+class(bird_sp_fac)
+bird_sp_fact <- as.factor(bird_sp_fac)
+barplot(number_bird,bird_sp_vec)
+class(number_bird)
+number_bird_fac <- as.factor(number_bird)
+
+real_plot <- data.frame(bird_sp_fact, number_bird_fac)
+view(number_bird_fac)
+meyr_vec <- as.vector(number_bird_fac)
+class(meyr_vec)
+meyr_numeric <- as.numeric(meyr_vec)
+barplot(meyr_numeric, names.arg = bird_sp_vec,
+        xlab = "abcde",
+        ylab = "rgwerg",
+        col = "red")
+
+
+
+
+
+
+
+```
+
